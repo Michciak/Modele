@@ -1,0 +1,182 @@
+---
+title: "SMLiN_egzamin"
+author: "Michał Koziński"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    theme: darkly
+    #page-layout: full
+---
+
+# Zagadnienia do przygotowania na egzamin ustny z Statystycznych Modeli Liniowych i Nieliniowych
+
+___
+
+<!-- wykład 1 -->
+
+## 1. Podaj postać ogólną modelu regresji wielorakiej.
+
+Przez model liniowy (w sensie ścisłym) będziemy rozumieć wszystkie modele
+postaci $$y = E(Y|X_1 = x_1 , ... , X_p = x_p) \stackrel{\text{def}}{=} \beta_0 + \beta_1 x_1 + ... + \beta_px_p + \varepsilon,$$
+gdzie $Y$ jest zmienną objaśnianą, $X_1,...,X_p$ są zmiennymi objaśniającymi, a $x_1,...,x_p$ ich realizacjami, $\varepsilon$ jest błędem modelu, natomiast $\beta_0,...,\beta_p$ nieznanymi parametrami równania (parametrami strukturalnymi równania).
+
+Przez modele liniowe (w szerszym sensie - liniowe względem parametrów,
+zwane także linearyzowalnymi) rozumie się takie modele, które zawierają zmienne objaśniające poddane transformacji (np. $X_i^3$, $log(X_i)$ lub interakcje zmiennych objaśniających (np. $X_2X_3$).
+
+<br>
+
+## 2. Przedstaw model liniowy w zapisie macierzowym.
+
+Zapis macierzowy modelu liniowego przyjmuje postać $$\textbf{Y}=\textbf{X}\beta + \varepsilon,$$
+gdzie 
+
+$$\textbf{Y} =\begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{pmatrix},
+\textbf{X} =\begin{pmatrix} 1 & x_{11} & \cdots & x_{1p} \\ 
+1 & x_{21} & \cdots & x_{2p} \\ 
+\vdots & \vdots & \ddots & \vdots\\ 
+1 & x_{n1} & \cdots & x_{np} \end{pmatrix},
+\beta =\begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_p \end{pmatrix}, 
+\varepsilon =\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \varepsilon_n \end{pmatrix} $$
+
+Dodatkowo o błędzie modelu przyjmuje się, że $E(\varepsilon|\textbf{X}) = 0$ i $Cov(\varepsilon|\textbf{X}) = \sigma^2I$.
+
+<br>
+
+## 3. Wymień założenia jakie muszą być spełnione, aby parametry modelu otrzymane metodą najmniejszych kwadratów były BLUE.
+
+Na to aby estymatory parametrów strukturalnych modelu otrzymane metodą
+najmniejszych kwadratów(OLS) były BLUE(Best Linear Unbiased Estimators) muszą być spełnione następujące warunki (tw. Gaussa-Markova):
+
+1. Charakter zależności pomiędzy zmiennymi objaśniającymi, a objaśnianą powinien być liniowy.
+
+2. Liczba obserwacji w próbie musi być większa (najlepiej znacznie większa)
+od liczby szacowanych w modelu parametrów.
+
+3. Zmienne objaśniające nie powinny wykazywać współliniowości (redundancji - nadmiarowości).
+
+4. Składniki losowe (błędy) powinny być nieskorelowane o stałej wariancji i
+mieć średnią równą zero, co zapisujemy $E(\varepsilon|\textbf{X}) = 0$ i $Cov(\varepsilon|\textbf{X}) = \sigma^2I$.
+
+<br>
+
+## 4. Na czym polega metoda najmniejszych kwadratów?
+
+## 5. Podaj wzór na wektor parametrów $\hat\beta$".
+
+Estymator $\hat\beta = (X'X)^{-1}X'y$ &nbsp;&nbsp; jest nieobciążony o wiariancji $Cov(\hat\beta) = (X'X)^{-1}\sigma^2$.
+
+## 6. Podaj twierdzenie z dowodem mówiące o postaci macierzy kowariancji parametrów modelu liniowego.
+
+$$Cov(\hat\beta) = (X'X)^{-1}\sigma^2$$
+Ponieważ
+
+$$\begin{array}a Cov(\hat\beta) = Cov((X'X)^{-1}X'y) = \\
+(X'X)^{-1}X'Cov(y)((X'X)^{-1}X')' = \\
+(X'X)^{-1}X'X(X'X)^{-1}\sigma^2 = (X'X)^{-1}\sigma^2\end{array}$$
+
+## 7. Podaj wzór estymatora wariancji $\sigma^2$ dla regresji liniowej i podaj jego własności.
+
+Nieobciąonym estymatorem wariancji $\sigma^2$ w regresji wielorakiej jest
+
+$$s^2 = \frac{e'e}{n-p-1} = \frac{1}{n-p-1}\sum\limits^n_{i=1}(y_i - \hat y_i)^2$$
+
+Przy czym nalezny pamiętać, że jeśli $\varepsilon \sim N(0, \sigma^2I)$, to $$s^2 \sim \chi^2(n-p-1) \text{ - ma rozkład chi}^2 \text{ z }n - p -1\text{ stopniami swobody}$$
+
+<!-- wykład 2 -->
+
+## 8. Do czego służy test F w modelach liniowych?
+
+## 9. Czym są modele zagnieżdżone?
+
+## 10. Jakie są obciążenie i wariancja parametrów modeli niedouczonych i przeuczonych?
+
+## 11. Jak testujemy poszczególne efekty w modelu regresji wielorakiej?
+
+## 12. Wymień znane Ci miary dopasowania modelu regresji (podaj wzory 3 z nich).
+
+## 13. Podaj przyczyny i skutki niespełnienia założenia o jednorodności wariancji błędów w modelach regresji.
+
+## 14. Podaj przyczyny i skutki niespełnienia założenia o liniowym charakterze zależności w modelach regresji.
+
+## 15. Podaj przyczyny i skutki endogeniczności w modelach regresji.
+
+## 16. Podaj przyczyny i skutki niespełnienia założenia o braku kowariancji pomiędzy błędami w modelach regresji.
+
+## 17. Czym jest heterogeniczność próbkowa i modelowa?
+
+## 18. Podaj przyczyny i skutki nadmiarowości w modelach regresji.
+
+## 19. Jakie są konsekwencje braku normalności wektora błędów?
+
+## 20. Jakie znasz wykresy diagnostyczne do testowania założeń modelu linowego?
+
+## 21. Wymień testy do weryfikacji hipotezy o równości wariancji wektora błędów.
+
+## 22. Wymień testy do weryfikacji hipotezy o braku seryjnej korelacji błędów modelu liniowego.
+
+## 23. Wymień testy do weryfikacji hipotezy o liniowej postaci zależności pomiędzy zmienną objaśnianą i objaśniającymi.
+
+## 24. Wypowiedz twierdzenie mówiące o własnościach macierzy H modelu liniowego.
+
+## 25. Czym są obserwacje odstające, dobrej i złej dźwigni?
+
+## 26. Podaj wzór odległości Cooka i powiedz do czego ona służy.
+
+## 27. Podaj wzór reszt standaryzowanych i studentyzowanych.
+
+## 28. Czym są miary DFFIT, DFBETA, COVRATIO?
+
+## 29. Opisz metodę największej wiarogodności (wiarygodności) w kontekście modeli liniowych.
+
+## 30. Podaj własności estymatora parametrów modelu otrzymanego metodą największej wiarogodności.
+
+## 31. Czym jest przedział ufności dla regresji i predykcji?
+
+## 32. Jakie są powodu transformacji zmiennych objaśniających i objaśnianych w modelach liniowych?
+
+## 33. Jak interpretować model, którego zmienne są logarytmowane?
+
+## 34. Czym jest przekształcenie potęgowe i do czego służy?
+
+## 35. Na czym polega transformacja Box-Cox i czym się różni od transformacji Yeo-Johnsona?
+
+## 36. Opisz zasadę działania ważonej metody najmniejszych kwadratów.
+
+## 37. Na czym polega metoda FWLS (FGLS)?
+
+## 38. Czym są estymatory White’a?
+
+## 39. Czym jest i do czego służy ANCOVA?
+
+## 40. Czym jest regresja wielomianowa i jak można ją wykorzystać w modelowaniu zależności pomiędzy cechami?
+
+## 41. Przeprowadź dyskusję na temat naruszeń założeń modelu ANOVA.
+
+## 42. Wymień znane Ci testy post-hoc oraz określ podobieństwa i różnice pomiędzy nimi.
+
+## 43. Czym są porównania zaplanowane?
+
+## 44. Podaj przykłady trzech predefiniowanych kontrastów.
+
+## 45. Czym są kontrasty ortogonalne?
+
+## 46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?
+
+## 47. Podaj ogólną zasadę tworzenia modeli GLM.
+
+## 48. Czym jest i do czego służy regresja logistyczna?
+
+## 49. Jak testujemy istotność efektów w modelach GLM?
+
+## 50. Na czym polega metoda Gaussa-Newtona?
+
+## 51. Czy jest hierarchiczna analiza wariancji?
+
+## 52. Na czym polegają efekty stałe i losowe w modelach mieszanych?
+
+## 53. Wymień znane Ci testy istotności efektów stałych.
+
+## 54. Jak testujemy efekty losowe w modelu mieszanym?
+
+## 55. Czym jest i do czego służy model z powtarzanymi pomiarami?
