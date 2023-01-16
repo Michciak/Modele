@@ -2681,6 +2681,7 @@ vertical-align: -.125em;
 <section id="podaj-wzór-na-wektor-parametrów-hatbeta." class="level2">
 <h2 class="anchored" data-anchor-id="podaj-wzór-na-wektor-parametrów-hatbeta.">5. Podaj wzór na wektor parametrów <span class="math inline">\(\hat\beta\)</span>“.</h2>
 <p>Estymator <span class="math inline">\(\hat\beta = (X&#39;X)^{-1}X&#39;y\)</span>    jest nieobciążony o wiariancji <span class="math inline">\(Cov(\hat\beta) = (X&#39;X)^{-1}\sigma^2\)</span>.</p>
+<p><br></p>
 </section>
 <section id="podaj-twierdzenie-z-dowodem-mówiące-o-postaci-macierzy-kowariancji-parametrów-modelu-liniowego." class="level2">
 <h2 class="anchored" data-anchor-id="podaj-twierdzenie-z-dowodem-mówiące-o-postaci-macierzy-kowariancji-parametrów-modelu-liniowego.">6. Podaj twierdzenie z dowodem mówiące o postaci macierzy kowariancji parametrów modelu liniowego.</h2>
@@ -2688,16 +2689,22 @@ vertical-align: -.125em;
 <p><span class="math display">\[\begin{array}a Cov(\hat\beta) = Cov((X&#39;X)^{-1}X&#39;y) = \\
 (X&#39;X)^{-1}X&#39;Cov(y)((X&#39;X)^{-1}X&#39;)&#39; = \\
 (X&#39;X)^{-1}X&#39;X(X&#39;X)^{-1}\sigma^2 = (X&#39;X)^{-1}\sigma^2\end{array}\]</span></p>
+<p><br></p>
 </section>
 <section id="podaj-wzór-estymatora-wariancji-sigma2-dla-regresji-liniowej-i-podaj-jego-własności." class="level2">
 <h2 class="anchored" data-anchor-id="podaj-wzór-estymatora-wariancji-sigma2-dla-regresji-liniowej-i-podaj-jego-własności.">7. Podaj wzór estymatora wariancji <span class="math inline">\(\sigma^2\)</span> dla regresji liniowej i podaj jego własności.</h2>
 <p>Nieobciąonym estymatorem wariancji <span class="math inline">\(\sigma^2\)</span> w regresji wielorakiej jest</p>
 <p><span class="math display">\[s^2 = \frac{e&#39;e}{n-p-1} = \frac{1}{n-p-1}\sum\limits^n_{i=1}(y_i - \hat y_i)^2\]</span></p>
 <p>Przy czym nalezny pamiętać, że jeśli <span class="math inline">\(\varepsilon \sim N(0, \sigma^2I)\)</span>, to <span class="math display">\[s^2 \sim \chi^2(n-p-1) \text{ - ma rozkład chi}^2 \text{ z }n - p -1\text{ stopniami swobody}\]</span></p>
+<p><br></p>
 <!-- wykład 2 -->
 </section>
 <section id="do-czego-służy-test-f-w-modelach-liniowych" class="level2">
 <h2 class="anchored" data-anchor-id="do-czego-służy-test-f-w-modelach-liniowych">8. Do czego służy test F w modelach liniowych?</h2>
+<p>Test F jest testem globalnym służącym do oceny jakości modelu w kontekście istotności statystycznej parametrów strukturalnych. Wartość statystyki F pokazuje, czy istnieje związek między zmiennymi objaśniającymi a zmienna objaśnianą. Im bardziej statystyka F różni się od 1, tym lepiej, tzn. możemy odrzucić hipotezę zerową <span class="math inline">\(H_0: \beta_1 = ... = \beta_p = 0\)</span> <span class="math inline">\(H_1: \beta_i \neq 0 \text{ dla co najmniej jednego i}\)</span> <span class="math display">\[F = \frac{SSR/p}{RSS/(n-p-1)}\]</span> SSR - wariancja wyjaśniana przez model</p>
+<p>RSS - wariancja resztowa</p>
+<p>Jeśli część wariancji wyjaśnianej przez model jest duża w stosunku do wariancji resztowej, to najczęściej będziemy odrzucać hipotezę H0, co oznacza, iż co najmnjej jedna ze zmiennych objaśniających użytych w modelu ma istotny wpływ na zmienną objaśnianą.</p>
+<p><br></p>
 </section>
 <section id="czym-są-modele-zagnieżdżone" class="level2">
 <h2 class="anchored" data-anchor-id="czym-są-modele-zagnieżdżone">9. Czym są modele zagnieżdżone?</h2>

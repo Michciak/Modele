@@ -66,6 +66,8 @@ mieć średnią równą zero, co zapisujemy $E(\varepsilon|\textbf{X}) = 0$ i $C
 
 Estymator $\hat\beta = (X'X)^{-1}X'y$ &nbsp;&nbsp; jest nieobciążony o wiariancji $Cov(\hat\beta) = (X'X)^{-1}\sigma^2$.
 
+<br>
+
 ## 6. Podaj twierdzenie z dowodem mówiące o postaci macierzy kowariancji parametrów modelu liniowego.
 
 $$Cov(\hat\beta) = (X'X)^{-1}\sigma^2$$
@@ -75,6 +77,8 @@ $$\begin{array}a Cov(\hat\beta) = Cov((X'X)^{-1}X'y) = \\
 (X'X)^{-1}X'Cov(y)((X'X)^{-1}X')' = \\
 (X'X)^{-1}X'X(X'X)^{-1}\sigma^2 = (X'X)^{-1}\sigma^2\end{array}$$
 
+<br>
+
 ## 7. Podaj wzór estymatora wariancji $\sigma^2$ dla regresji liniowej i podaj jego własności.
 
 Nieobciąonym estymatorem wariancji $\sigma^2$ w regresji wielorakiej jest
@@ -83,9 +87,23 @@ $$s^2 = \frac{e'e}{n-p-1} = \frac{1}{n-p-1}\sum\limits^n_{i=1}(y_i - \hat y_i)^2
 
 Przy czym nalezny pamiętać, że jeśli $\varepsilon \sim N(0, \sigma^2I)$, to $$s^2 \sim \chi^2(n-p-1) \text{ - ma rozkład chi}^2 \text{ z }n - p -1\text{ stopniami swobody}$$
 
+<br>
+
 <!-- wykład 2 -->
 
 ## 8. Do czego służy test F w modelach liniowych?
+
+Test F jest testem globalnym służącym do oceny jakości modelu w kontekście istotności statystycznej parametrów strukturalnych. Wartość statystyki F pokazuje, czy istnieje związek między zmiennymi objaśniającymi a zmienna objaśnianą. Im bardziej statystyka F różni się od 1, tym lepiej, tzn. możemy odrzucić hipotezę zerową $H_0: \beta_1 = ... = \beta_p = 0$ $H_1: \beta_i \neq 0 \text{ dla co najmniej jednego i}$ $$F = \frac{SSR/p}{RSS/(n-p-1)}$$
+SSR - wariancja wyjaśniana przez model
+
+RSS - wariancja resztowa 
+
+Jeśli część wariancji wyjaśnianej przez model jest duża w stosunku do wariancji
+resztowej, to najczęściej będziemy odrzucać hipotezę H0, co oznacza, iż co
+najmnjej jedna ze zmiennych objaśniających użytych w modelu ma istotny
+wpływ na zmienną objaśnianą.
+
+<br>
 
 ## 9. Czym są modele zagnieżdżone?
 
