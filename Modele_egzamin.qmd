@@ -60,7 +60,13 @@ mieć średnią równą zero, co zapisujemy $E(\varepsilon|\textbf{X}) = 0$ i $C
 
 <br>
 
-## *4. Na czym polega metoda najmniejszych kwadratów?
+## 4. Na czym polega metoda najmniejszych kwadratów?
+
+Model otrzymany tą metodą oznaczamy jako $\hat y_{\text{OLS}} = X\hat\beta\;$, gdzie <br/> $\hat y_{\text{OLS}}$ jest wartością teoretyczną oszacowaną na podstawie modelu, <br/> $\hat\beta$ jest estymatorem wektora parametrów $\beta$.
+
+Procedura estymacji parametrów najszerzej może być opisana jako minimalizacja następującej funkcji celu (straty) $$\sum\limits^n_{i=1}M(e_i)\stackrel{\text{def}}{=}\sum\limits^n_{i=1}M(y_i - \hat y_i)$$ gdzie <br/> M przyjmuje się najczęściej jako $M(x) = |x|$ lub (jak w przypadku OLS) $M(x)=x^2$.
+
+<br>
 
 ## 5. Podaj wzór na wektor parametrów $\hat\beta$".
 
@@ -490,46 +496,96 @@ Aby przetestować tę hipotezę należy przypisać wagi $c_1=2; \; c_2 = -1; \; 
 
 ## 44. Podaj przykłady trzech predefiniowanych kontrastów.
 
+:::: {style="display: flex;"}
+::: {}
+<u>Odchylenie</u>&emsp; 
+:::
+:::{}
+kontrast służący do porówniania odchyleń każdej średniej grupowej od średniej ogólnej zmiennej zależnej. Na przykład dla czynnika o trzech poziomach, jeśli chcemy porównać $\mu_1$ z $\frac{\mu_1+\mu_2+\mu_3}{3}$, mamy $2\mu_1-\mu_2-\mu_3=0$, czyli dostajemy kontrast $(2,-1,-1)$. Podobnie porównując $\mu_2$ z $\frac{\mu_1+\mu_2+\mu_3}{3}$, dostajemy kontrst $(-1,2,-1)$.
+:::
+::::
+
+:::: {style="display: flex;"}
+::: {}
+<u>Prosty</u>&emsp;&emsp;&emsp;
+:::
+:::{}
+ten kontrast służy do porównywania średniej dla każdego poziomu ze średnią ostatniego poziomu. Dla trzech poziomów otrzymujemy macierzkonstastów: $(1,0,-1), \; (0,1,-1)$.
+:::
+::::
+
+:::: {style="display: flex;"}
+::: {}
+<u>Powtarzany</u>&ensp;
+:::
+:::{}
+ten kontrast służy do porównywania średnich sąsiednich poziomów czynnika. Dla trzech poziomów mamy macierz kontrastów: $(1,0,-1), \; (0,1,-1)$.
+:::
+::::
 <br/>
 
 ## 45. Czym są kontrasty ortogonalne?
+
+Dwa kontrasty $K_1 = \sum\limits^k_{i=1} c_{1i}\mu_i$ i $K_2 = \sum\limits^k_{i=1} c_{2i}\mu_i$ są względem siebie ortogonalne, gdy suma iloczynów odpowiadających sobie wag jest równa zero (niezależność wektorów), czyli $\sum\limits^k_{i=1} c_{1i}c_{2i} = 0$. Zbiór $m$ kontrastów tworzy zbiór kontrastów względem siebie ortogonalny, gdy wszystkie pary kontrastów w tym zbiorze są ortogonalne.
+
+- Dla zbioru $k$ średnich możemy utworzyć maksymalnie $k − 1$ kontrastów ortogonalnych.
+
+- Suma sum kwadratów $k − 1$ ortogonalnych kontrastów daje sumę kwadratów dla efektu badanego czynnika.
+
+- Rozkład sumy kwadratów na kontrasty ortogonalne nie jest jednoznaczny (możemy budować różne zbiory kontrastów ortogonalnych).
+
+- Nie musimy badać wszystkich kontrastów ortogonalnych. Najczęściej rozpatrujemy konkretne interesujące nas kontrasty badawcze. Pozostałe kontrasty można powiązać w efekt łączny, tworząc kontrast pomiędzy średnimi wykorzystanymi i niewykorzystanymi w dotychczasowych kontrastach.
+
+Miara $r^2 = \frac{SS_K}{SS_{\text{efektu}}}$ wyrażana w procentach, informuje w jakim procencie dany kontrast wyjaśnia zmienność wśród zmiennych grupowych.
+
 
 <br/>
 
 ## 46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?
 
-<br/>
 
-## 47. Podaj ogólną zasadę tworzenia modeli GLM.
 
-<br/>
 
-## 48. Czym jest i do czego służy regresja logistyczna?
 
-<br/>
 
-## 49. Jak testujemy istotność efektów w modelach GLM?
 
-<br/>
 
-## 50. Na czym polega metoda Gaussa-Newtona?
 
-<br/>
 
-## 51. Czy jest hierarchiczna analiza wariancji?
 
-<br/>
 
-## 52. Na czym polegają efekty stałe i losowe w modelach mieszanych?
+<!-- <br/> -->
 
-<br/>
+<!-- ## 47. Podaj ogólną zasadę tworzenia modeli GLM. -->
 
-## 53. Wymień znane Ci testy istotności efektów stałych.
+<!-- <br/> -->
 
-<br/>
+<!-- ## 48. Czym jest i do czego służy regresja logistyczna? -->
 
-## 54. Jak testujemy efekty losowe w modelu mieszanym?
+<!-- <br/> -->
 
-<br/>
+<!-- ## 49. Jak testujemy istotność efektów w modelach GLM? -->
 
-## 55. Czym jest i do czego służy model z powtarzanymi pomiarami?
+<!-- <br/> -->
+
+<!-- ## 50. Na czym polega metoda Gaussa-Newtona? -->
+
+<!-- <br/> -->
+
+<!-- ## 51. Czy jest hierarchiczna analiza wariancji? -->
+
+<!-- <br/> -->
+
+<!-- ## 52. Na czym polegają efekty stałe i losowe w modelach mieszanych? -->
+
+<!-- <br/> -->
+
+<!-- ## 53. Wymień znane Ci testy istotności efektów stałych. -->
+
+<!-- <br/> -->
+
+<!-- ## 54. Jak testujemy efekty losowe w modelu mieszanym? -->
+
+<!-- <br/> -->
+
+<!-- ## 55. Czym jest i do czego służy model z powtarzanymi pomiarami? -->
