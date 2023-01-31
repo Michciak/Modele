@@ -466,6 +466,8 @@ gm(y)\log(y), \quad \; \: \,y = 0
 </section>
 <section id="czym-jest-regresja-wielomianowa-i-jak-można-ją-wykorzystać-w-modelowaniu-zależności-pomiędzy-cechami" class="level2">
 <h2 class="anchored" data-anchor-id="czym-jest-regresja-wielomianowa-i-jak-można-ją-wykorzystać-w-modelowaniu-zależności-pomiędzy-cechami">40. Czym jest regresja wielomianowa i jak można ją wykorzystać w modelowaniu zależności pomiędzy cechami?</h2>
+<p><u>Regresja wielomianowa</u> - czasami zdarza się, że postać zależności nie da się opisać liniowo (w sensie ścisłym). Nawet jeśli prawdziwa postać nie da się opisać wielomianem rzędu m, to wiele z nich da się aproksymować za pomocą wielomianów.</p>
+<p><img src="obrazki/obr1.png" class="img-fluid"> <u><em>Interpretacja wyników</em></u> <br> Na podstawie tabeli możemy wywnioskować, że wielomian 2 stopnia jest odpowiednim opisam zależności. Model liniowy wyraźnie nie opisuje właściwości badanej zależności. Natomiast wielomian 3 stopnia nie poprawia znacząco jakości dopasowania, jednocześnie zawyżając błędy standardowe estymacji, ponieważ jest nadmiernie dopasowany <br> <strong>Uwaga</strong> Pamiętajmy, że podobnie jak w przypadku analizy kowariancji, tak i w tym przypadku nie usuwamy efektów niższego rzędu jeśli efekty wyższych rzędów są istotne.</p>
 <p><br></p>
 </section>
 <section id="przeprowadź-dyskusję-na-temat-naruszeń-założeń-modelu-anova." class="level2">
@@ -482,10 +484,19 @@ gm(y)\log(y), \quad \; \: \,y = 0
 </section>
 <section id="wymień-znane-ci-testy-post-hoc-oraz-określ-podobieństwa-i-różnice-pomiędzy-nimi." class="level2">
 <h2 class="anchored" data-anchor-id="wymień-znane-ci-testy-post-hoc-oraz-określ-podobieństwa-i-różnice-pomiędzy-nimi.">42. Wymień znane Ci testy post-hoc oraz określ podobieństwa i różnice pomiędzy nimi.</h2>
+<ul>
+<li><p><u>Test HSD Tukeya</u> jest oparty na statystyce testowej studentyzowanego rozstępu wyznaczonej jako różnica pomiędzy najmniejszą a największą średnią w rozważanych grupach podzieloną przez pierwiastek z wariancji wewnątrzgrupowej. Test ten powinien być stosowany tylko do układu zrónoważonego (równoliczne grupy). Dla układów niezrównoważonych stosuje się test Spjotvolla i Stoline’a.</p></li>
+<li><p><u>Test Newmana-Keulsa</u> ma podobną budowę do testu Tukeya, z jedną różnicą. Mianowicie, jeżeli rozważamy k grup, to w teście Tukeya dla każdej pary średnich stosuje się ten sam kwantyl studentyzowanego rozkładu rozstępu dla k grup. W teście Newmana-Keulsa średnie w pierwszym kroku są sortowane, następnie jeżeli porównuje się średnią, <span class="math inline">\(\hat\mu_{1:k}\)</span> (najmniejszą) z <span class="math inline">\(\hat\mu_{k:k}\)</span> (największą), to stosuje się rozkład studentyzowanego rozstępu dla k grup. Ale dla innych średnich, stosuje się rozkład studentyzowany dla <span class="math inline">\(|i − j| + 1\)</span> grup.</p></li>
+<li><p><u>Test LSD Fishera</u> Polega on na wykonaniu <span class="math inline">\(\frac{k(k1)}{2}\)</span> testów t-Studenta przez porównanie każdej pary średnich i zastosowanie korekty na liczbę przeprowadzonych testów. Do korekty wykorzystać można poprawkę np. Bonferroniego, Holma-Hochberga. Nie zakłada się tutaj równych liczebności grup.</p></li>
+<li><p><u>Test Scheffe</u> Jest to najbardziej konserwatywny test, czyli najlepiej kontroluje błąd I rodzaju ale też ma najmniejszą czułość. Przypomina test LSD Fishera, ale tu są uwzględnione wszystkie możliwe kontrasty. Z tego powodu mimo konserwatywności, jest on używany w sytuacji, gdy porównywane są nieplanowane kontrasty. Nie zakłada się tutaj równych liczebności grup.</p></li>
+</ul>
 <p><br></p>
 </section>
 <section id="czym-są-porównania-zaplanowane" class="level2">
 <h2 class="anchored" data-anchor-id="czym-są-porównania-zaplanowane">43. Czym są porównania zaplanowane?</h2>
+<p>Porównanie wszystkich par średnich ze sobą nie zawsze jest tym, co nas interesuje. W wielu sytuacjach chcemy porównać wybrane średnie lub grupy średnich pomiędzy sobą. Do porównania wybranych grup średnich służy analiza kontrastów (porównania zaplanowane). Kontrastem nazywamy liniową funkcję średnich <span class="math display">\[L = \sum\limits^k_{i=1}c_i\mu_i\]</span> gdzie <br> najczęściej zakłada się, że <span class="math inline">\(\sum\limits^k_{i=1}c_i = 0\)</span></p>
+<p>Przykładowo, jeśli badamy wpływ czynnika kontrolowanego na trzech poziomach i chcemy sprawdzić, czy pierwsza z tych grup różni się od pozostałych, to hipoteza zerowa ma postać <br> <span class="math inline">\(H_0:\mu = \frac{\mu_2+\mu_3}{2}\)</span> <br> co możemy zapisać w postaci <br> <span class="math inline">\(H_0:\mu - \frac{1}{2}\mu_2 - \frac{1}{2}\mu_3 = 0 \quad\)</span> lub <span class="math inline">\(\quad H_0:2\mu - \mu_2 - \mu_3 = 0\)</span></p>
+<p>Aby przetestować tę hipotezę należy przypisać wagi <span class="math inline">\(c_1=2; \; c_2 = -1; \; c_3=-1\)</span> odpowiednim średnim. Współczynniki zbioru kontrastów można przedstawić, używając macierzy <span class="math inline">\(k \times m\)</span> <br> gdzie <br> <span class="math inline">\(m\)</span> to liczba kontrastów, <br><span class="math inline">\(k\)</span> to liczba współczynników opisujących każdy kontrast.</p>
 <p><br></p>
 </section>
 <section id="podaj-przykłady-trzech-predefiniowanych-kontrastów." class="level2">
