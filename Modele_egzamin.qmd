@@ -240,9 +240,9 @@ Brak normalności rozkładu błędu uniemożliwia testowanie istotności paramet
 
 1. Residuals vs Fitted - Wykres reszt względem wartości dopasowanych <br/>
 2. Normal Q-Q - wykres kwantylowy <br/>
-3. Scale-Location - wykres reszt standaryzowanych względem wartościdopasowanych <br/>
+3. Scale-Location - wykres reszt standaryzowanych względem wartości dopasowanych <br/>
 4. Cook’s distance - wykres odległości Cooka <br/>
-5. Residuals vs Leverage - wykres reszt względem dźwign <br/>
+5. Residuals vs Leverage - wykres reszt względem dźwigni <br/>
 6. Cook’s dist vs Leverage - wykres odległości Cooka względem dźwigni
 
 <br/>
@@ -297,6 +297,8 @@ Niech $X$ będzie macierzą $n \times (p+1)$ modelu o rzędzie $p + 1<n$. Wówcz
 
 - <u>Obserwacje złej dźwigni</u> - obserwacje o dużej dźwigni, jednocześnie mające duży wpływ na model.
 
+![](obrazki/obr2.png)
+
 <br/>
 
 ## 26. Podaj wzór odległości Cooka i powiedz do czego ona służy.
@@ -312,7 +314,7 @@ $r_i$ jest i-tą resztą standaryzowaną (czasem studentyzowaną).
 
 - Reszty standaryzowane $$r_i=\frac{e_i}{s\sqrt{1-h_{ii}}}$$ 
 
-- Reszty studentyzowane $$t_i=\frac{e}{s_{(i)}\sqrt{1-h_{ii}}}$$ gdzie <br/>
+- Reszty studentyzowane $$t_i=\frac{e_i}{s_{(i)}\sqrt{1-h_{ii}}}$$ gdzie <br/>
 $s_{(i)}$ oznacza błąd standardowy estymacji obliczony na podstawie zbioru pozbawionego i-tej obserwacji.
 
 <br/>
