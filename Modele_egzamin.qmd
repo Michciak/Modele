@@ -417,7 +417,7 @@ Przypadkiem uogólnionego modelu regresji liniowej, w którym nie występuje zal
 
 ## 37. Na czym polega metoda FWLS (FGLS)?
 
-W przypadku gdy nie znamy macierzy kowariancji V ale wiemy, że jest funkcją pewnego predyktora, to zaleca się stosowanie metody FGLS (czasem oznaczana jako FWLS). Polega ona na ostymowaniu parametrów modelu w dwóch krokach:
+W przypadku gdy nie znamy macierzy kowariancji V ale wiemy, że jest funkcją pewnego predyktora, to zaleca się stosowanie metody FGLS (czasem oznaczana jako FWLS). Polega ona na estymowaniu parametrów modelu w dwóch krokach:
 
 - Estymacja parametrów $\beta$ metodą OLS.
 
@@ -437,7 +437,7 @@ W przypadku gdy nie znamy macierzy kowariancji V i nie znamy struktury zależno�
 
 ## 39. Czym jest i do czego służy ANCOVA?
 
-<u>Analiza kowariancji (**ANCOVA** - **AN**alysis of **COVA**riance)</u> to często stosowana metoda statystyczna łącząca w sobie elementy analizy wariancji (**ANOVA** - **AN**alysis **O**f **VA**riance), korelacji i regresji. Główny cel metodyjest podobny do analizy wariancji: dać odpowiedź czy analizowany czynnik doświadczalny wpływa w sposób istotny na badaną cechę. Na przykład, możemy mieć do czynienia z dwiema różnymi metodami nauczania matematyki w dwóch różnych klasach (grupach/próbach). Obok oceny biegłości w matematyce możemy zbierać także dane na temat ogólnej inteligencji. Może być interesującym przekonać się czy zależność między ogólną inteligencją a wynikami w matematyce jest silniejsza czy słabsza w zależności od metody nauczania. W terminologii ANCOVA taka hipoteza odnosi się do równoległości linii regresji w obydwu klasach. Jeśli linie te są równoległe to zależności w obu klasach są takie same i stąd wynika, że związek między inteligencją a wynikami w matematyce nie zależy od metody nauczania. Jeśli nie są one równoległe to wnioskujemy, że metoda nauczania ma wpływ na zależność wyników od inteligencji. 
+<u>Analiza kowariancji (**ANCOVA** - **AN**alysis of **COVA**riance)</u> to często stosowana metoda statystyczna łącząca w sobie elementy analizy wariancji (**ANOVA** - **AN**alysis **O**f **VA**riance), korelacji i regresji. Główny cel metody jest podobny do analizy wariancji: dać odpowiedź czy analizowany czynnik doświadczalny wpływa w sposób istotny na badaną cechę. Na przykład, możemy mieć do czynienia z dwiema różnymi metodami nauczania matematyki w dwóch różnych klasach (grupach/próbach). Obok oceny biegłości w matematyce możemy zbierać także dane na temat ogólnej inteligencji. Może być interesującym przekonać się czy zależność między ogólną inteligencją a wynikami w matematyce jest silniejsza czy słabsza w zależności od metody nauczania. W terminologii ANCOVA taka hipoteza odnosi się do równoległości linii regresji w obydwu klasach. Jeśli linie te są równoległe to zależności w obu klasach są takie same i stąd wynika, że związek między inteligencją a wynikami w matematyce nie zależy od metody nauczania. Jeśli nie są one równoległe to wnioskujemy, że metoda nauczania ma wpływ na zależność wyników od inteligencji. 
 
 W analizie kowariancji budujemy model regresji liniowej, w którym występuje pośród zmiennych objaśniających co najmniej jedna zmienna ilościowa i co najmniej jedna zmienna jakościowa. Jeśli zmienna jakościowa $V$ ma $k$ poziomów, to kodujemy ją następująco: jeden z tych poziomów określamy jako referencyjny, a dla każdego pozostałego poziomu tworzymy zmienną charakterystyczną zwaną zmienną pustą i te zmienne umieszczamy w modelu.
 
@@ -449,7 +449,7 @@ W analizie kowariancji budujemy model regresji liniowej, w którym występuje po
 
 ![](obrazki/obr1.png)
 <u>*Interpretacja wyników*</u> <br/>
-Na podstawie tabeli możemy wywnioskować, że wielomian 2 stopnia jest odpowiednim opisam zależności. Model liniowy wyraźnie nie opisuje właściwości badanej zależności. Natomiast wielomian 3 stopnia nie poprawia znacząco jakości dopasowania, jednocześnie zawyżając błędy standardowe estymacji, ponieważ jest nadmiernie dopasowany <br/> **Uwaga** Pamiętajmy, że podobnie jak w przypadku analizy kowariancji, tak i w tym przypadku nie usuwamy efektów niższego rzędu jeśli efekty wyższych rzędów są istotne.
+Na podstawie tabeli możemy wywnioskować, że wielomian 2 stopnia jest odpowiednim opisem zależności. Model liniowy wyraźnie nie opisuje właściwości badanej zależności. Natomiast wielomian 3 stopnia nie poprawia znacząco jakości dopasowania, jednocześnie zawyżając błędy standardowe estymacji, ponieważ jest nadmiernie dopasowany <br/> **Uwaga** Pamiętajmy, że podobnie jak w przypadku analizy kowariancji, tak i w tym przypadku nie usuwamy efektów niższego rzędu jeśli efekty wyższych rzędów są istotne.
 
 
 <br/>
