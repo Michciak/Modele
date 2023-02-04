@@ -94,7 +94,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#czym-są-porównania-zaplanowane" id="toc-czym-są-porównania-zaplanowane" class="nav-link" data-scroll-target="#czym-są-porównania-zaplanowane">43. Czym są porównania zaplanowane?</a></li>
   <li><a href="#podaj-przykłady-trzech-predefiniowanych-kontrastów." id="toc-podaj-przykłady-trzech-predefiniowanych-kontrastów." class="nav-link" data-scroll-target="#podaj-przykłady-trzech-predefiniowanych-kontrastów.">44. Podaj przykłady trzech predefiniowanych kontrastów.</a></li>
   <li><a href="#czym-są-kontrasty-ortogonalne" id="toc-czym-są-kontrasty-ortogonalne" class="nav-link" data-scroll-target="#czym-są-kontrasty-ortogonalne">45. Czym są kontrasty ortogonalne?</a></li>
-  <li><a href="#na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova" id="toc-na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova" class="nav-link" data-scroll-target="#na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova">46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?</a></li>
+  <li><a href="#na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova" id="toc-na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova" class="nav-link" data-scroll-target="#na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova">46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?</a>
+  <ul class="collapse">
+  <li><a href="#test-typu-i" id="toc-test-typu-i" class="nav-link" data-scroll-target="#test-typu-i"><strong>Test typu I</strong></a></li>
+  <li><a href="#test-typu-ii" id="toc-test-typu-ii" class="nav-link" data-scroll-target="#test-typu-ii"><strong>Test typu II</strong></a></li>
+  <li><a href="#test-typu-iii" id="toc-test-typu-iii" class="nav-link" data-scroll-target="#test-typu-iii"><strong>Test typu III</strong></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -536,6 +541,74 @@ gm(y)\log(y), \quad \; \: \,y = 0
 </section>
 <section id="na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova" class="level2">
 <h2 class="anchored" data-anchor-id="na-czym-polegają-różnice-w-typach-testów-i-ii-iii-anova">46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?</h2>
+<p>Do lepszego zrozumienia powyższej uwagi przyjrzyjmy się jak testy różnych typów testują poszczególne hipotezy. Po pierwsze należy wprowadzić pewne oznaczenia, które pozwolą rozróżniać sumy kwadratów odchyleń:</p>
+<ul>
+<li><p><span class="math inline">\(SS(A|B) = SS(A,B)- SS(B)\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(B|A) = SS(A,B)- SS(A)\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(AB|A,B) = SS(A,B,AB)- SS(A,B)\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(A|B,AB) = SS(A,B,AB)- SS(B,AB)\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(B|A,AB) = SS(A,B,AB)- SS(A,AB)\)</span>,</p></li>
+</ul>
+<p>gdzie <br> skrót <span class="math inline">\(SS\)</span> oznacza sumę kwadratów odchyleń uwzględniająca wskazane w nawiasie efekty.</p>
+<section id="test-typu-i" class="level3">
+<h3 class="anchored" data-anchor-id="test-typu-i"><strong>Test typu I</strong></h3>
+<p>(sekwencyjny) w modelu z interakcją testuje w następującej kolejności poszczególne efekty:</p>
+<ul>
+<li><p><span class="math inline">\(SS(A)\)</span> - test efektu <span class="math inline">\(A\)</span></p></li>
+<li><p><span class="math inline">\(SS(B|A)\)</span> - testuje istotność efektu <span class="math inline">\(B\)</span> przy założeniu, że z sumy kwadratów odchyleń został już usunięty wpływ efektu czynnika <span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(AB|A,B)\)</span> - testuje efekt interakcji <span class="math inline">\(AB\)</span>, przy założeniu, że z sumy kwadratów odchyleń zostały usunięte efekty <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p><u>Zalety</u><br></p>
+<ul>
+<li><p><span class="math inline">\(SS\)</span> poszczególnych efektów sumują się do SST,</p></li>
+<li><p>odpowiedni do badania efektów zagnieżdżonych,</p></li>
+<li><p>wyniki nie zależą od kontrastów.</p></li>
+</ul>
+<p><u>Wady</u><br></p>
+<ul>
+<li><p>kolejność włączanych efektów jest ważna,</p></li>
+<li><p>niewłaściwe dla większości testowanych hipotez.</p></li>
+</ul>
+</section>
+<section id="test-typu-ii" class="level3">
+<h3 class="anchored" data-anchor-id="test-typu-ii"><strong>Test typu II</strong></h3>
+<ul>
+<li><p><span class="math inline">\(SS(A|B)\)</span> - testuje efekt <span class="math inline">\(A\)</span> przy założeniu, że wpływ efektu <span class="math inline">\(B\)</span> został już usunięty.</p></li>
+<li><p><span class="math inline">\(SS(B|A)\)</span> - testuje istotność efektu <span class="math inline">\(B\)</span> przy założeniu, że z sumy kwadratów odchyleń został już usunięty wpływ efektu czynnika <span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(AB|A,B)\)</span> - testuje efekt interakcji <span class="math inline">\(AB\)</span>, przy założeniu, że z sumy kwadratów odchyleń zostały usunięte efekty <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p><u>Zalety</u><br></p>
+<ul>
+<li><p>najmocniejszy test przy braku interakcji,</p></li>
+<li><p>właściwy do oceny istotności efektów w trakcie budowy modelu hierarchicznie,</p></li>
+<li><p>kolejność włączanych efektów jest nieistotna,</p></li>
+<li><p>wyniki nie zależą od kontrastów,</p></li>
+<li><p><span class="math inline">\(SS\)</span> efektów sumują się do SST.</p></li>
+</ul>
+<p><u>Wady</u><br></p>
+<ul>
+<li>nie jest odpowiedni w przypadku istotnych interakcji efektów brzegowych.</li>
+</ul>
+</section>
+<section id="test-typu-iii" class="level3">
+<h3 class="anchored" data-anchor-id="test-typu-iii"><strong>Test typu III</strong></h3>
+<p>(brzegowy):</p>
+<ul>
+<li><p><span class="math inline">\(SS(A|B,AB)\)</span> - test efektu <span class="math inline">\(A\)</span> przy wyłączeniu wpływu czynnika <span class="math inline">\(B\)</span> i interakcji <span class="math inline">\(AB\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(B|A,AB)\)</span> - test efektu <span class="math inline">\(B\)</span> przy wyłączeniu wpływu czynnika <span class="math inline">\(A\)</span> i interakcji <span class="math inline">\(AB\)</span>,</p></li>
+<li><p><span class="math inline">\(SS(AB|A,B)\)</span> - testuje efekt interakcji <span class="math inline">\(AB\)</span> przy wyłączeniu wpływu czynników <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p><u>Zalety</u><br></p>
+<ul>
+<li>kolejność efektów nie ma znaczenia.</li>
+</ul>
+<p><u>Wady</u><br></p>
+<ul>
+<li><p>tylko dla kontrastów ortogonalnych do wyrazu wolnego są sensowne,</p></li>
+<li><p>tylko dla kontrastów ortogonalnych do wyrazu wolnego są sensowne,</p></li>
+<li><p>średnie globalna i brzegowe nie uwzględniają niezbalansowania układu,</p></li>
+<li><p>trudne do interpretacji wielkości efektów brzegowych w przypadku istotnej interakcji.</p></li>
+</ul>
 <!-- <br/> -->
 <!-- ## 47. Podaj ogólną zasadę tworzenia modeli GLM. -->
 <!-- <br/> -->
@@ -554,6 +627,7 @@ gm(y)\log(y), \quad \; \: \,y = 0
 <!-- ## 54. Jak testujemy efekty losowe w modelu mieszanym? -->
 <!-- <br/> -->
 <!-- ## 55. Czym jest i do czego służy model z powtarzanymi pomiarami? -->
+</section>
 </section>
 </section>
 

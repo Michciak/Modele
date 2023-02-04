@@ -545,16 +545,90 @@ Miara $r^2 = \frac{SS_K}{SS_{\text{efektu}}}$ wyrażana w procentach, informuje 
 
 ## 46. Na czym polegają różnice w typach testów (I, II, III) ANOVA?
 
+Do lepszego zrozumienia powyższej uwagi przyjrzyjmy się jak testy różnych typów testują poszczególne hipotezy. Po pierwsze należy wprowadzić pewne oznaczenia, które pozwolą rozróżniać sumy kwadratów odchyleń:
 
+- $SS(A|B) = SS(A,B)- SS(B)$,
 
+- $SS(B|A) = SS(A,B)- SS(A)$,
 
+- $SS(AB|A,B) = SS(A,B,AB)- SS(A,B)$,
 
+- $SS(A|B,AB) = SS(A,B,AB)- SS(B,AB)$,
 
+- $SS(B|A,AB) = SS(A,B,AB)- SS(A,AB)$,
 
+gdzie <br/>
+skrót $SS$ oznacza sumę kwadratów odchyleń uwzględniająca wskazane w nawiasie efekty.
 
+### **Test typu I** 
+(sekwencyjny) w modelu z interakcją testuje w następującej kolejności poszczególne efekty:
 
+- $SS(A)$ - test efektu $A$
 
+- $SS(B|A)$ - testuje istotność efektu $B$ przy założeniu, że z sumy kwadratów odchyleń został już usunięty wpływ efektu czynnika $A$,
 
+- $SS(AB|A,B)$ - testuje efekt interakcji $AB$, przy założeniu, że z sumy kwadratów odchyleń zostały usunięte efekty $A$ i $B$.
+
+<u>Zalety</u><br/>
+
+- $SS$ poszczególnych efektów sumują się do SST,
+
+- odpowiedni do badania efektów zagnieżdżonych,
+
+- wyniki nie zależą od kontrastów.
+
+<u>Wady</u><br/>
+
+- kolejność włączanych efektów jest ważna,
+
+- niewłaściwe dla większości testowanych hipotez.
+
+### **Test typu II**
+
+- $SS(A|B)$ - testuje efekt $A$ przy założeniu, że wpływ efektu $B$ został już usunięty.
+
+- $SS(B|A)$ - testuje istotność efektu $B$ przy założeniu, że z sumy kwadratów odchyleń został już usunięty wpływ efektu czynnika $A$,
+
+- $SS(AB|A,B)$ - testuje efekt interakcji $AB$, przy założeniu, że z sumy kwadratów odchyleń zostały usunięte efekty $A$ i $B$.
+
+<u>Zalety</u><br/>
+
+- najmocniejszy test przy braku interakcji,
+
+- właściwy do oceny istotności efektów w trakcie budowy modelu hierarchicznie,
+
+- kolejność włączanych efektów jest nieistotna,
+
+- wyniki nie zależą od kontrastów,
+
+- $SS$ efektów sumują się do SST.
+
+<u>Wady</u><br/>
+
+- nie jest odpowiedni w przypadku istotnych interakcji efektów brzegowych.
+
+### **Test typu III** 
+(brzegowy):
+
+- $SS(A|B,AB)$ - test efektu $A$ przy wyłączeniu wpływu czynnika $B$ i interakcji $AB$,
+
+- $SS(B|A,AB)$ - test efektu $B$ przy wyłączeniu wpływu czynnika $A$ i interakcji $AB$,
+
+- $SS(AB|A,B)$ - testuje efekt interakcji $AB$ przy wyłączeniu wpływu czynników $A$ i $B$.
+
+<u>Zalety</u><br/>
+
+- kolejność efektów nie ma znaczenia.
+
+<u>Wady</u><br/>
+
+- tylko dla kontrastów ortogonalnych do wyrazu wolnego są sensowne,
+
+- tylko dla kontrastów ortogonalnych do wyrazu wolnego są sensowne,
+
+- średnie globalna i brzegowe nie uwzględniają niezbalansowania układu,
+
+- trudne do interpretacji wielkości efektów brzegowych w przypadku istotnej interakcji.
 
 <!-- <br/> -->
 
