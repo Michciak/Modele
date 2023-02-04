@@ -421,7 +421,7 @@ W przypadku gdy nie znamy macierzy kowariancji V ale wiemy, że jest funkcją pe
 
 - Estymacja parametrów $\beta$ metodą OLS.
 
-- Estymacja modelu $\ln(e^2) = \gamma_0 + \gamma_1 + \dots + \gamma_px_p$, gdzie $e$ są resztami z modelu OLs. W niektórych publikacjach zaleca się stosować inne funkcje zależności reszt od predyktorów.
+- Estymacja modelu $\ln(e^2) = \gamma_0 + \gamma_1x_1 + \dots + \gamma_px_p$, gdzie $e$ są resztami z modelu OLs. W niektórych publikacjach zaleca się stosować inne funkcje zależności reszt od predyktorów.
 
 - Wyznaczamy odpowiedzi modelu z punktu 2 i przyjmujemy, że $h_i=\exp(\ln(\hat e^2))$ dla $i = 1, \dots, n$.
 
