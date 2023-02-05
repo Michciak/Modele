@@ -431,7 +431,7 @@ W przypadku gdy nie znamy macierzy kowariancji V ale wiemy, że jest funkcją pe
 
 ## 38. Czym są estymatory White’a?
 
-W przypadku gdy nie znamy macierzy kowariancji V i nie znamy struktury zależności wariancji od predyktorów, stosujemy odporne estymatory błędów standardowych White’a. Przyjmują one postać: $$\hat{V\!ar}(\hat\beta) = (X'X)^{-1}X'diag(e^2)X(X'X^{-1})$$ gdzie <br/> $e^2$ oznaczają kwadraty reszt modelu OLS, a $X$ jest macierzą modelu. Pierwiastek z wariancji opisanej wyżej jest odpornym estymatorem błędu standardowego estymacji. Estymatory odporne nie zmieniają parametrów modelu, a jedynie macierz ich kowariancji.
+W przypadku gdy nie znamy macierzy kowariancji V i nie znamy struktury zależności wariancji od predyktorów, stosujemy odporne estymatory błędów standardowych White’a. Przyjmują one postać: $$\hat{V\!ar}(\hat\beta) = (X'X)^{-1}X'diag(e^2)X(X'X)^{-1}$$ gdzie <br/> $e^2$ oznaczają kwadraty reszt modelu OLS, a $X$ jest macierzą modelu. Pierwiastek z wariancji opisanej wyżej jest odpornym estymatorem błędu standardowego estymacji. Estymatory odporne nie zmieniają parametrów modelu, a jedynie macierz ich kowariancji.
 
 <br/>
 
